@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Two</title>
+    <style>
+        #login-table tr th {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bg-red{
+            background-color: red;
+        }
+
+        .container{
+            margin: 0% 10%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* position: relative;
+            left: 50vh; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table id="login-table">
+            <form action="login.php" method="POST">
+                <tr>
+                    <th><label for="fullname">Ho va ten:</label></th>
+                    <td><input type="text" id="fullname" name="fullname" placeholder="Nhap ho va ten" required /></td>
+                </tr>
+                <tr>
+                    <th><label for="email">Email:</label></th>
+                    <td><input type="email" id="email" name="email" placeholder="Nhap vao email" required /></td>
+                </tr>
+                <tr>
+                    <th><label for="password">Password:</label></th>
+                    <td><input type="password" id="password" name="password" placeholder="Nhap vao password" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center" colspan="2"><input type="submit" value="Submit"></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</body>
+
+</html>
