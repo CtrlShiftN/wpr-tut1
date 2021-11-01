@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .d-none{
+            display: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" name="username" id="username" placeholder="Nguyen Van A">
+    <button id="submitBtn"> Submit</button>
+    <br>
+    This is a demo text:<br>
+    <span id="demo-text" class="red" onclick="log()" ></span>
+    <br>
+    <script>
+        // alert('This is a demo alert');
+        document.write('Demo document write');
+        document.getElementById('demo-text').innerHTML = "<b>This is demo text</b>";
+
+        // demo js function
+        function log(){
+            console.log('123123');
+        }
+        // event listener
+        document.getElementById('demo-text').addEventListener('click', function(){
+            log();
+        });
+        // demo input
+        let username = document.getElementById('username');
+        document.getElementById('submitBtn').addEventListener('click',function(){
+            console.log(username.value);
+            $('#demo-text').removeClass('red');
+            $('#demo-text').addClass('d-none');
+        });
+        // let gpa = parseFloat(prompt('Enter your GPA'));
+        // console.log(gpa);
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
