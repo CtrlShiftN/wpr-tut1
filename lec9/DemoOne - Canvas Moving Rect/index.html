@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="game" width="800" height="600" style="border: 3px solid #000000"></canvas>
+        <br />
+        <button onclick="start()">Start</button>
+    </div>
+    <script>
+        let gameContext = document.getElementById("game").getContext("2d");
+        let rectX = 400, rectY = 500;
+        let positionX = rectX, positionY = rectY;
+        let speed = 80;
+        let step = 40;
+        let play;
+        let canvasHeight = 600;
+        let canvasWidth = 800;
+        let rectWidth = 20;
+        let rectHeight = 20;
+
+        drawRect();
+
+        function start() {
+            drawRect();
+            play = setInterval(moveLoop, speed);
+        }
+
+        function moveLoop() {
+            // Xoá hình chữ nhật đã vẽ trước đó 
+            gameContext.clearRect(rectX, rectY, rectWidth, rectHeight);
+            let isTop = rectY < 0;
+            let isBottom = rectY + rectHeight > canvasHeight;
+            let isRight = rectX + rectWidth > canvasWidth;
+            let isLeft = rectX < 0;
+            if (isTop || isBottom) {
+                step = -step;
+            }
+            // rectX += step;
+            rectY -= step;
+
+            drawRect();
+        }
+
+
+
+        function drawRect() {
+            gameContext.beginPath();
+            gameContext.fillStyle = '#fa4b2a';
+            gameContext.fillRect(rectX, rectY, rectWidth, rectHeight);
+        }
+
+        function moveUp() {
+            // Xoá hình chữ nhật đã vẽ trước đó 
+            gameContext.clearRect(rectX, rectY, rectWidth, rectHeight);
+            if (rectY > 0) {
+                rectY -= speed;
+            }
+            drawRect();
+        }
+        function moveDown() {
+            // Xoá hình chữ nhật đã vẽ trước đó 
+            gameContext.clearRect(rectX, rectY, rectWidth, rectHeight);
+            if (rectY + 100 < 600) {
+                rectY += speed;
+            }
+            drawRect();
+        }
+        function moveRight() {
+            // Xoá hình chữ nhật đã vẽ trước đó 
+            gameContext.clearRect(rectX, rectY, rectWidth, rectHeight);
+            if (rectX + 150 < 800) {
+                rectX += speed;
+            }
+            drawRect();
+        }
+        function moveLeft() {
+            // Xoá hình chữ nhật đã vẽ trước đó 
+            gameContext.clearRect(rectX, rectY, rectWidth, rectHeight);
+            if (rectX > 0) {
+                rectX -= speed;
+            }
+            drawRect();
+        }
+    </script>
+</body>
+
+</html>
